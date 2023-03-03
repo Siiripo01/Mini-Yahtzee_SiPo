@@ -74,9 +74,8 @@ export default StyleSheet.create({
     textAlign: 'center'
   },
   dicepoints: {
-    
+    flexDirection: 'row',
+    width: 280,
+    alignContent: 'center'
   },
-  dicenumbers: {
-
-  }
 });

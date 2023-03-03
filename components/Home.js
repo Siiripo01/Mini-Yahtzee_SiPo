@@ -16,7 +16,6 @@ export default Home = ({ navigation }) => {
 
     return (
         <View>
-            <Header/>
             <Text>Home will be here...</Text>
 
             { !hasPlayerName
@@ -40,7 +39,6 @@ export default Home = ({ navigation }) => {
                     </Pressable>
                 </>
             }
-            <Footer/>
         </View>
     )
 }
