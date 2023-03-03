@@ -5,6 +5,7 @@ import styles from '../style/Style';
 import { NBR_OF_DICES, NBR_OF_THROWS, MAX_SPOT } from '../constants/Game'
 import { Col, Grid } from 'react-native-easy-grid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {SCOREBOARD_KEY} from '../constants/Game';
 
 let board = [];
 
@@ -91,6 +92,10 @@ export default Gameboard = ({ route }) => {
         }
     }, []);
 
+    useEffect(() => {
+        getScoreboardData();
+    }, []);
+
     function getDiceColor(i) {
         return selectedDices[i] ? "black" : "steelblue";
     }
@@ -144,7 +149,7 @@ export default Gameboard = ({ route }) => {
 
     const getScoreboardData = async () => {
         try {
-            const jsonValue = await AsyncStorage.getItem(SCOREBOAD_KEY)
+            const jsonValue = await AsyncStorage.getItem(SCOREBOARD_KEY)
             if (jsonValue !== null) {
                 let tmpScores = JSON.parse(jsonValue);
                 setScores(tmpScores);
@@ -165,7 +170,7 @@ export default Gameboard = ({ route }) => {
         try { 
             const newScore = [...scores, playerPoints];
             const jsonValue= JSON.stringify(newScore);
-            await AsyncStorage.setItem(SCOREBOAD_KEY, jsonValue);
+            await AsyncStorage.setItem(SCOREBOARD_KEY, jsonValue);
 
         }
         catch (error) {

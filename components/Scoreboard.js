@@ -1,11 +1,10 @@
-import React from 'react';
-import { Text, View } from 'react-native';
 import React, {useState, useEffect} from "react";
 import {Text, View} from 'react-native';
 import Header from './Header';
-import Footer from './Footer'
+import Footer from './Footer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {SCOREBOAD_KEY} from './constants/Game.js'
+import {SCOREBOARD_KEY} from '../constants/Game';
+import styles from '../style/Style';
 
 export default ScoreBoard = ( {navigation} ) => {
 
@@ -19,7 +18,7 @@ export default ScoreBoard = ( {navigation} ) => {
 
     const getScoreboardData = async () => {
         try {
-            const jsonValue = await AsyncStorage.getItem(SCOREBOAD_KEY)
+            const jsonValue = await AsyncStorage.getItem(SCOREBOARD_KEY)
             if (jsonValue !== null) {
                 let tmpScores = JSON.parse(jsonValue);
                 setScores(tmpScores);
