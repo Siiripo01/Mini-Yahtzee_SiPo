@@ -19,18 +19,18 @@ export default StyleSheet.create({
   title: {
     color: '#fff',
     fontWeight: 'bold',
-    flex: 1,
     fontSize: 23,
     textAlign: 'center',
-    margin: 10,
+    padding: 7,
+    backgroundColor: '#65abb4'
   },
   author: {
     color: '#fff',
     fontWeight: 'bold',
-    flex: 1,
     fontSize: 15,
     textAlign: 'center',
-    margin: 10,
+    padding: 10,
+    backgroundColor: '#65abb4'
   },
   gameboard: {
     backgroundColor: '#fff',
@@ -59,10 +59,9 @@ export default StyleSheet.create({
     width: 150,
     borderRadius: 15,
     justifyContent: 'center',
-    alignItems: 'center'
   },
   buttonText: {
-    color:"#2B2B52",
+    color:"#ffffff",
     fontSize: 20,
   },
   points: {
@@ -77,5 +76,10 @@ export default StyleSheet.create({
     flexDirection: 'row',
     width: 280,
     alignContent: 'center'
+  },
+  home: {
+    marginTop: 15,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 });

@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import styles from '../style/Style';
-import { NBR_OF_DICES, NBR_OF_THROWS, MAX_SPOT } from '../constants/Game'
+import { NBR_OF_DICES, NBR_OF_THROWS, MAX_SPOT, SCOREBOARD_KEY } from '../constants/Game';
 import { Col, Grid } from 'react-native-easy-grid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {SCOREBOARD_KEY} from '../constants/Game';
 
 let board = [];
 
@@ -14,7 +13,7 @@ export default Gameboard = ({ route }) => {
     const [date, setDate] = useState(new Date());
     const [playerName, setPlayerName] = useState('');
     const [nbrOfThrowsLeft, setNbrOfThrowsLeft] = useState(NBR_OF_THROWS);
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState('Throw dices.');
     const [scores, setScores] = useState([]);
 
     // This array has the information whether dice is selected or not.
@@ -33,18 +32,18 @@ export default Gameboard = ({ route }) => {
 
     const row = [];
     for (let i = 0; i < NBR_OF_DICES; i++) {
-      row.push(
-        <Pressable 
-            key={"row" + i}
-            onPress={() => selectDice(i)}>
-          <MaterialCommunityIcons
-            name={board[i]}
-            key={"row" + i}
-            size={50} 
-            color={getDiceColor(i)}>
-          </MaterialCommunityIcons>
-        </Pressable>
-      );
+        row.push(
+            <Pressable 
+                key={"row" + i}
+                onPress={() => selectDice(i)}>
+                <MaterialCommunityIcons
+                    name={board[i]}
+                    key={"row" + i}
+                    size={50} 
+                    color={getDiceColor(i)}>
+                </MaterialCommunityIcons>
+            </Pressable>
+        );
     }
 
     const pointsRow = [];
@@ -188,19 +187,35 @@ export default Gameboard = ({ route }) => {
     }
 
     return (
-        <View style={styles.gameboard}>
-            <View style={styles.flex}>{row}</View>
-            <Text style={styles.gameinfo}>Throws left: {nbrOfThrowsLeft}</Text>
-            <Text style={styles.gameinfo}>{status}</Text>
-            <Pressable style={styles.button}
-                onPress={() => throwDices()}>
-                <Text style={styles.buttonText}>
-                    Throw dices
-                </Text>
-            </Pressable>
-            <View style={styles.dicepoints}><Grid>{pointsRow}</Grid></View>
-            <View style={styles.dicepoints}><Grid>{buttonsRow}</Grid></View>
-            <Text>Player: {playerName}</Text>
+        <View>
+
+            <Text style={styles.title}>Mini-Yahtzee</Text>
+
+            <View style={styles.gameboard}>
+
+                <View style={styles.flex}>{row}</View>
+
+                <Text style={styles.gameinfo}>Throws left: {nbrOfThrowsLeft}</Text>
+
+                <Text style={styles.gameinfo}>{status}</Text>
+
+                <Pressable style={styles.button}
+                    onPress={() => throwDices()}>
+                    <Text style={styles.buttonText}>
+                        Throw dices
+                    </Text>
+                </Pressable>
+
+                <View style={styles.dicepoints}><Grid>{pointsRow}</Grid></View>
+
+                <View style={styles.dicepoints}><Grid>{buttonsRow}</Grid></View>
+
+                <Text>Player: {playerName}</Text>
+
+            </View>
+
+            <Text style={styles.author}>Author: Siiri Poropudas</Text>
+
         </View>
     )
 }
