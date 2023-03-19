@@ -26,7 +26,7 @@ export default Home = ({ navigation }) => {
                 <>
                     <View style={styles.home}>
 
-                        <MaterialCommunityIcons name="account-circle" size={70} color="steelblue"/>
+                        <MaterialCommunityIcons name="account-circle" size={70} color="#6b49a0"/>
 
                         <Text>Enter your name for the scoreboard please:</Text>
 

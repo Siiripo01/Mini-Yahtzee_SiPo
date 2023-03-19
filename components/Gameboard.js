@@ -174,7 +174,7 @@ export default Gameboard = ({ route }) => {
             name: playerName,
             date: <Text>{date.toLocaleDateString()}</Text>,
             time:  <Text>{date.toLocaleTimeString()}</Text>,
-            points: 60 // replcae with real points
+            points: 60 // replace with real points
         }
         try { 
             const newScore = [...scores, playerPoints];
@@ -207,6 +207,8 @@ export default Gameboard = ({ route }) => {
                         THROW
                     </Text>
                 </Pressable>
+
+                <Text>Total:</Text>
 
                 <View style={styles.dicepoints}><Grid>{pointsRow}</Grid></View>
 

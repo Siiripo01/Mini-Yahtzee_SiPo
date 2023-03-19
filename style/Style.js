@@ -6,15 +6,14 @@ export default StyleSheet.create({
     backgroundColor: '#fff'
   },
   header: {
-    marginTop: 30,
     marginBottom: 15,
-    backgroundColor: 'skyblue',
+    backgroundColor: '#bb71b1',
     flexDirection: 'row',
   },
   footer: {
     marginTop: 20,
-    backgroundColor: 'skyblue',
-    flexDirection: 'row'
+    backgroundColor: '#bb71b1',
+    flexDirection: 'row',
   },
   title: {
     color: '#fff',
@@ -26,7 +25,7 @@ export default StyleSheet.create({
   author: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 10,
     textAlign: 'center',
     padding: 10,
   },
@@ -53,7 +52,7 @@ export default StyleSheet.create({
     margin: 30,
     flexDirection: "row",
     padding: 10,
-    backgroundColor: "#73CED6",
+    backgroundColor: "#a182c4",
     width: 150,
     borderRadius: 15,
     justifyContent: 'center',
