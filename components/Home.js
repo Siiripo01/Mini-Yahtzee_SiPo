@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, Pressable, Keyboard } from 'react-native';
+import styles from '../style/Style';
 
 export default Home = ({ navigation }) => {
 
@@ -16,17 +17,17 @@ export default Home = ({ navigation }) => {
 
     return (
         <View>
-            <Text>Home will be here...</Text>
+            <Text>Mini-Yahtzee</Text>
 
             { !hasPlayerName
                 ?
                 <>
-                    <Text>Enter your name for the scoreboard please</Text>
+                    <Text>Enter your name for the scoreboard...</Text>
 
                     <TextInput onChangeText={setPlayerName} autoFocus={true}></TextInput>
 
-                    <Pressable onPress={() => handlePlayerName(playerName)}>
-                        <Text>OK</Text>
+                    <Pressable onPress={() => handlePlayerName(playerName)} style={styles.button}>
+                        <Text style={styles.buttonText}>OK</Text>
                     </Pressable>
                 </>
                 :

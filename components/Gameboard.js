@@ -11,6 +11,7 @@ let board = [];
 
 export default Gameboard = ({ route }) => {
     
+    const [date, setDate] = useState(new Date());
     const [playerName, setPlayerName] = useState('');
     const [nbrOfThrowsLeft, setNbrOfThrowsLeft] = useState(NBR_OF_THROWS);
     const [status, setStatus] = useState('');
@@ -73,6 +74,13 @@ export default Gameboard = ({ route }) => {
             </Col>
         )
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setDate(new Date());
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         if (nbrOfThrowsLeft === 0) {
@@ -163,8 +171,8 @@ export default Gameboard = ({ route }) => {
     const savePlayerPoints = async () => {
         const playerPoints = {
             name: playerName,
-            date: '3.3.2023', //replace with real date
-            time: '09:00', //replacev with real time
+            date: <Text>{date.toLocaleDateString()}</Text>,
+            time:  <Text>{date.toLocaleTimeString()}</Text>,
             points: 60 // replcae with real points
         }
         try { 
@@ -179,7 +187,6 @@ export default Gameboard = ({ route }) => {
         }
     }
 
-    // JOTAIN PITÄÄ KORJATA TÄÄLLÄ!
     return (
         <View style={styles.gameboard}>
             <View style={styles.flex}>{row}</View>
