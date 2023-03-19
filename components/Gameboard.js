@@ -87,7 +87,7 @@ export default Gameboard = ({ route }) => {
         if (nbrOfThrowsLeft === 0) {
             setStatus('Select your points');
         }
-        else if (nbrOfThrowsLeft <0 ) {
+        else if (nbrOfThrowsLeft < 0 ) {
             setNbrOfThrowsLeft(NBR_OF_THROWS-1);
         }
         else if (selectedDicePoints.every(x => x)) {
@@ -106,11 +106,11 @@ export default Gameboard = ({ route }) => {
     }, []);
 
     function getDiceColor(i) {
-        return selectedDices[i] ? "black" : "steelblue";
+        return selectedDices[i] ? "#c54bb5" : "#6b49a0";
     }
 
     function getDicePointsColor(i) {
-        return selectedDicePoints[i] ? "black" : "steelblue";
+        return selectedDicePoints[i] ? "#c54bb5" : "#6b49a0";
     }
 
     function selectDice(i) {
@@ -154,6 +154,16 @@ export default Gameboard = ({ route }) => {
         setNbrOfThrowsLeft(nbrOfThrowsLeft-1);
         setDiceSpots(spots);
         setStatus('Select and throw dices again');
+    }
+
+    function calculateTotalPoints(spots) {
+        let totalPoints = 0;
+        for (let i = 0; i < NBR_OF_DICES; i++) {
+            if (selectedDices[i]) {
+                totalPoints += spots[i];
+            }
+        }
+        return totalPoints;
     }
 
     const getScoreboardData = async () => {
@@ -208,7 +218,7 @@ export default Gameboard = ({ route }) => {
                     </Text>
                 </Pressable>
 
-                <Text>Total:</Text>
+                <Text>Total: {totalPoints}</Text>
 
                 <View style={styles.dicepoints}><Grid>{pointsRow}</Grid></View>
 
