@@ -22,7 +22,6 @@ export default StyleSheet.create({
     fontSize: 23,
     textAlign: 'center',
     padding: 7,
-    backgroundColor: '#65abb4'
   },
   author: {
     color: '#fff',
@@ -30,7 +29,6 @@ export default StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     padding: 10,
-    backgroundColor: '#65abb4'
   },
   gameboard: {
     backgroundColor: '#fff',

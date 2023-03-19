@@ -19,7 +19,7 @@ export default Home = ({ navigation }) => {
 
     return (
         <View>
-            <Text style={styles.title}>Mini-Yahtzee</Text>
+            <Header/>
 
             { !hasPlayerName
                 ?
@@ -27,7 +27,6 @@ export default Home = ({ navigation }) => {
                     <View style={styles.home}>
 
                         <MaterialCommunityIcons name="account-circle" size={70} color="steelblue"/>
-
 
                         <Text>Enter your name for the scoreboard please:</Text>
 
@@ -38,7 +37,7 @@ export default Home = ({ navigation }) => {
                         </Pressable>
                     </View>
 
-                    <Text style={styles.author}>Author: Siiri Poropudas</Text>
+                    <Footer/>
                 </>
                 :
                 <>
@@ -60,7 +59,7 @@ export default Home = ({ navigation }) => {
                         </Pressable>
                     </View>
 
-                    <Text style={styles.author}>Author: Siiri Poropudas</Text>
+                    <Footer/>
                 </>
             }
         </View>

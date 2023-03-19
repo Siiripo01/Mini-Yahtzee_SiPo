@@ -5,6 +5,8 @@ import styles from '../style/Style';
 import { NBR_OF_DICES, NBR_OF_THROWS, MAX_SPOT, SCOREBOARD_KEY } from '../constants/Game';
 import { Col, Grid } from 'react-native-easy-grid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Header from './Header';
+import Footer from './Footer';
 
 let board = [];
 
@@ -189,7 +191,7 @@ export default Gameboard = ({ route }) => {
     return (
         <View>
 
-            <Text style={styles.title}>Mini-Yahtzee</Text>
+            <Header/>
 
             <View style={styles.gameboard}>
 
@@ -202,7 +204,7 @@ export default Gameboard = ({ route }) => {
                 <Pressable style={styles.button}
                     onPress={() => throwDices()}>
                     <Text style={styles.buttonText}>
-                        Throw dices
+                        THROW
                     </Text>
                 </Pressable>
 
@@ -214,7 +216,7 @@ export default Gameboard = ({ route }) => {
 
             </View>
 
-            <Text style={styles.author}>Author: Siiri Poropudas</Text>
+            <Footer/>
 
         </View>
     )
