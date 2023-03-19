@@ -18,18 +18,12 @@ export default Gameboard = ({ route }) => {
     const [status, setStatus] = useState('Throw dices.');
     const [scores, setScores] = useState([]);
 
-    // This array has the information whether dice is selected or not.
     const [selectedDices, setSelectedDices] = useState(new Array(NBR_OF_DICES).fill(false));
 
-    // This array has dice spots for a throw.
     const [diceSpots, setDiceSpots] = useState(new Array(NBR_OF_DICES).fill(0));
 
-    // *** FOR POINTS ROW IN THE BOTTOM
-    // This array has total points different spot counts.
     const [dicePointsTotal, setDicePointsTotal] = useState(new Array(MAX_SPOT).fill(0));
 
-    // *** FOR SPOT COUNTS IN THE BOTTOM
-    // This array has the information whether the spot count has been selected or not.
     const [selectedDicePoints, setSelectedDicePoints] = useState(new Array(MAX_SPOT).fill(false)); 
 
     const row = [];
@@ -184,7 +178,7 @@ export default Gameboard = ({ route }) => {
             name: playerName,
             date: <Text>{date.toLocaleDateString()}</Text>,
             time:  <Text>{date.toLocaleTimeString()}</Text>,
-            points: 60 // replace with real points
+            points: 60
         }
         try { 
             const newScore = [...scores, playerPoints];

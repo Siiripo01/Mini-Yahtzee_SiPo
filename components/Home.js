@@ -9,7 +9,6 @@ export default Home = ({ navigation }) => {
     const [playerName, setPlayerName] = useState('');
     const [hasPlayerName, setHasPlayerName] = useState(false);
 
-    // Check that the user has typed atleast one character.
     const handlePlayerName = (value) => {
         if (value.trim().length > 0) {
             setHasPlayerName(true);
